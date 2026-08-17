@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
 const MolecularScene = dynamic(
@@ -41,6 +41,8 @@ const heroItem: Variants = {
 };
 
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="top"
@@ -173,7 +175,7 @@ export function Hero() {
             className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
             <a
-              href="#technology"
+              href="#platform"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#18E8CF] px-6 py-3.5 text-sm font-semibold text-[#041019] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(24,232,207,0.22)]"
             >
               Explore our platform
@@ -234,7 +236,7 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <motion.a
-        href="#technology"
+        href="#innovation"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
@@ -243,10 +245,10 @@ export function Hero() {
         <span>Scroll to explore</span>
 
         <motion.span
-          animate={{ y: [0, 5, 0] }}
+          animate={{ y: shouldReduceMotion ? 0 : [0, 5, 0] }}
           transition={{
             duration: 1.5,
-            repeat: Infinity,
+            repeat: shouldReduceMotion ? 0 : Infinity,
             ease: "easeInOut",
           }}
         >

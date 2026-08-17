@@ -5,7 +5,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "Platform", href: "#technology" },
+  { label: "Platform", href: "#platform" },
   { label: "Research", href: "#research" },
   { label: "Capabilities", href: "#capabilities" },
   { label: "About", href: "#innovation" },

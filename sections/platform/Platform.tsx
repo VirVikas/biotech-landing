@@ -58,7 +58,7 @@ export function Platform() {
 
       <Container className="relative z-10 py-28 sm:py-36 lg:py-44">
         <SectionHeading
-          eyebrow="Technology Platform"
+          eyebrow="Technology Platform / 02"
           title="Computational Architecture"
           description="A scalable intelligence platform connecting molecular biology, AI and clinical research."
           align="center"

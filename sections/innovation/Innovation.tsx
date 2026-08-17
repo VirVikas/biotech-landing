@@ -12,8 +12,7 @@ import { Timeline } from "./Timeline";
 import { StageCard } from "./StageCard";
 import { stages } from "./stages";
 
-const STAGE_COUNT = stages.length;
-const DESKTOP_SCROLL_HEIGHT = "320vh";
+const DESKTOP_SCROLL_HEIGHT = "160vh";
 
 function getActiveIndex(progress: number): number {
   if (progress < 0.25) return 0;
@@ -125,7 +124,7 @@ export function Innovation() {
         style={{ height: DESKTOP_SCROLL_HEIGHT }}
       >
         <div className="sticky top-0 flex h-screen items-center">
-          <Container className="w-full pb-40 pt-8">
+          <Container className="w-full pb-20 pt-8">
             <div className="grid grid-cols-[2fr_3fr] items-start gap-16 xl:gap-24">
               <Timeline stages={stageList} activeIndex={activeIndex} />
 
@@ -137,7 +136,7 @@ export function Innovation() {
         </div>
       </div>
 
-      <Container className="relative z-10 hidden pb-40 lg:block" aria-hidden />
+      <div className="relative z-10 hidden pb-24 lg:block" aria-hidden />
     </section>
   );
 }

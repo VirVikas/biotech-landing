@@ -58,3 +58,50 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(24, 232, 207, 0.45);
 }
+
+@keyframes nexora-loader-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nexora-loader-pulse {
+  50% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+}
+
+@keyframes nexora-loader-signal {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(210%);
+  }
+}
+
+.nexora-loader__orbit {
+  animation: nexora-loader-orbit 2.6s linear infinite;
+}
+
+.nexora-loader__orbit--reverse {
+  animation-direction: reverse;
+  animation-duration: 3.8s;
+}
+
+.nexora-loader__core {
+  animation: nexora-loader-pulse 1.8s ease-in-out infinite;
+}
+
+.nexora-loader__signal {
+  animation: nexora-loader-signal 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexora-loader__orbit,
+  .nexora-loader__core,
+  .nexora-loader__signal {
+    animation: none;
+  }
+}
