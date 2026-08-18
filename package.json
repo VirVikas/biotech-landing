@@ -1,6 +1,7 @@
 {
   "name": "biotech-landing",
   "version": "0.1.0",
+  "description": "Premium computational biology and molecular intelligence landing page.",
   "private": true,
   "scripts": {
     "dev": "next dev",

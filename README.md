@@ -1,10 +1,21 @@
 # Nexora Bio
 
-Nexora Bio is a premium, animation-driven biotechnology landing page focused on computational biology and molecular intelligence.
+Computational intelligence for biological discovery.
 
 ## Overview
 
-The project demonstrates how interactive scientific visualization and modern frontend engineering can communicate complex biological systems. It combines molecular intelligence, computational biology, responsive editorial layouts, and restrained motion in a production-ready Next.js experience.
+Nexora Bio is a premium biotechnology landing page focused on computational biology and molecular intelligence. It combines scientific visualization, editorial layouts, and restrained motion in a responsive Next.js experience.
+
+## Features
+
+- Interactive molecular and DNA-inspired Hero visualization
+- Scroll-driven Innovation story with an active timeline
+- Computational architecture graph with animated SVG connections
+- Interactive research explorer and scientific diagrams
+- Asymmetric capabilities layout
+- Animated impact metrics and biological signal visualization
+- Conversion-focused CTA and responsive global navigation
+- Semantic landmarks, keyboard-accessible controls, and reduced-motion support
 
 ## Tech Stack
 
@@ -13,35 +24,37 @@ The project demonstrates how interactive scientific visualization and modern fro
 - TypeScript
 - Tailwind CSS 4
 - Framer Motion
-- Three.js
-- React Three Fiber
+- Three.js and React Three Fiber
+- GSAP
 - Lucide React
-
-## Features
-
-- Interactive molecular and DNA-inspired Hero visualization
-- Scroll-driven Innovation story with an active timeline
-- Computational architecture graph with animated SVG connections
-- Interactive research explorer and scientific diagrams
-- Asymmetric capabilities bento system
-- Animated Impact metrics and biological signal visualization
-- Final conversion CTA with an original SVG pathway graphic
-- Responsive desktop, tablet, and mobile layouts
-- Semantic landmarks and keyboard-accessible controls
-- Reduced-motion support across major decorative animations
 
 ## Getting Started
 
-Install dependencies and start the development server:
+Install dependencies:
 
 ```bash
 npm install
+```
+
+## Development
+
+Start the local development server:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in a browser.
+
+Run static analysis with:
+
+```bash
+npm run lint
+```
 
 ## Production Build
+
+Create and run an optimized production build:
 
 ```bash
 npm run build
@@ -52,7 +65,7 @@ npm start
 
 - `app/` — App Router layout, metadata, global styles, and page composition
 - `components/` — reusable UI, layout, motion, and visual-effect components
-- `sections/` — focused feature sections and their data/visualization modules
+- `sections/` — page sections and their data and visualization modules
 - `hooks/` — shared React hooks
 - `lib/` — framework-independent utilities
 - `types/` — shared TypeScript interfaces
@@ -60,8 +73,8 @@ npm start
 
 ## Design Approach
 
-The interface uses a dark scientific visual language with editorial typography, restrained cyan accents, molecular network imagery, subtle data overlays, SVG diagrams, and scroll-driven storytelling. Reusable components keep repeated visual and interaction patterns consistent without turning the page into a generic card template.
+The interface uses a dark scientific visual language with editorial typography, restrained cyan accents, molecular network imagery, subtle data overlays, and original SVG diagrams. Reusable components keep repeated visual and interaction patterns consistent while each section retains a distinct visual role.
 
 ## Animation Approach
 
-Framer Motion powers viewport reveals, scroll progress, state transitions, hover interactions, and SVG animation. React Three Fiber renders the Hero’s lightweight molecular scene. Continuous decorative motion is disabled or reduced when `prefers-reduced-motion` is enabled, while all content remains visible.
+Framer Motion powers viewport reveals, scroll progress, state transitions, hover interactions, and SVG animation. React Three Fiber renders the Hero’s lightweight molecular scene, while GSAP supports targeted motion behavior. Continuous decorative motion is disabled or reduced when `prefers-reduced-motion` is enabled, and all content remains available without animation.
