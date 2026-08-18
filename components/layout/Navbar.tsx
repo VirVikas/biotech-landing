@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 const navItems = [
   { label: "Platform", href: "#platform" },
@@ -12,6 +12,7 @@ const navItems = [
 ];
 
 export function Navbar() {
+  const shouldReduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -36,10 +37,10 @@ export function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -30, opacity: 0 }}
+        initial={shouldReduceMotion ? false : { y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
-          duration: 0.7,
+          duration: shouldReduceMotion ? 0 : 0.7,
           ease: [0.22, 1, 0.36, 1],
         }}
         className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8"
@@ -55,7 +56,7 @@ export function Navbar() {
           {/* Logo */}
           <a
             href="#top"
-            className="group flex items-center gap-3"
+            className="group flex items-center gap-3 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#18E8CF] focus-visible:ring-offset-4 focus-visible:ring-offset-[#05131D]"
             aria-label="Nexora Bio home"
           >
             <span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-[#18E8CF]/30 bg-[#18E8CF]/10">
@@ -75,7 +76,7 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative rounded-full px-4 py-2 text-sm text-slate-400 transition-colors duration-300 hover:text-white"
+                className="group relative rounded-full px-4 py-2 text-sm text-slate-400 outline-none transition-colors duration-300 hover:text-white focus-visible:text-white focus-visible:ring-2 focus-visible:ring-[#18E8CF]/70"
               >
                 {item.label}
 
@@ -87,10 +88,11 @@ export function Navbar() {
           {/* Desktop CTA */}
           <a
             href="#contact"
-            className="group hidden items-center gap-2 rounded-full border border-[#18E8CF]/30 bg-[#18E8CF]/10 px-4 py-2 text-sm font-medium text-[#8ff8ea] transition-all duration-300 hover:border-[#18E8CF]/60 hover:bg-[#18E8CF]/15 hover:text-white md:flex"
+            className="group hidden items-center gap-2 rounded-full border border-[#18E8CF]/30 bg-[#18E8CF]/10 px-4 py-2 text-sm font-medium text-[#8ff8ea] outline-none transition-all duration-300 hover:border-[#18E8CF]/60 hover:bg-[#18E8CF]/15 hover:text-white focus-visible:ring-2 focus-visible:ring-[#18E8CF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#05131D] md:flex"
           >
             Start a conversation
             <ArrowUpRight
+              aria-hidden="true"
               size={15}
               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
@@ -100,9 +102,10 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen((value) => !value)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white outline-none focus-visible:ring-2 focus-visible:ring-[#18E8CF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#05131D] md:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
@@ -113,7 +116,8 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
+            id="mobile-navigation"
+            initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 bg-[#041019]/95 px-6 pt-28 backdrop-blur-2xl md:hidden"
@@ -125,13 +129,13 @@ export function Navbar() {
                     key={item.label}
                     href={item.href}
                     onClick={closeMobile}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={shouldReduceMotion ? false : { opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{
                       delay: index * 0.06,
-                      duration: 0.4,
+                      duration: shouldReduceMotion ? 0 : 0.4,
                     }}
-                    className="border-b border-white/[0.08] py-5 text-2xl font-medium text-white"
+                    className="border-b border-white/[0.08] py-5 text-2xl font-medium text-white outline-none focus-visible:text-[#18E8CF]"
                   >
                     {item.label}
                   </motion.a>
@@ -141,13 +145,13 @@ export function Navbar() {
               <motion.a
                 href="#contact"
                 onClick={closeMobile}
-                initial={{ opacity: 0, y: 15 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mt-8 flex items-center justify-center gap-2 rounded-full bg-[#18E8CF] px-6 py-4 font-semibold text-[#041019]"
+                className="mt-8 flex items-center justify-center gap-2 rounded-full bg-[#18E8CF] px-6 py-4 font-semibold text-[#041019] outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#041019]"
               >
                 Start a conversation
-                <ArrowUpRight size={18} />
+                <ArrowUpRight aria-hidden="true" size={18} />
               </motion.a>
             </div>
           </motion.div>

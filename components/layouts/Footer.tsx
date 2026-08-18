@@ -9,7 +9,7 @@ const exploreLinks = [
   { label: "About", href: "#innovation" },
 ] as const;
 
-const unavailableLinks = ["LinkedIn", "Privacy", "Terms"] as const;
+const companyLinks = ["LinkedIn", "Privacy", "Terms"] as const;
 
 const linkStyles =
   "rounded-sm text-sm text-slate-400 underline-offset-4 outline-none transition-colors duration-300 hover:text-white hover:underline focus-visible:text-white focus-visible:ring-2 focus-visible:ring-[#18E8CF]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#041019]";
@@ -86,13 +86,10 @@ export function Footer() {
               </a>
             </address>
 
-            <ul aria-label="Upcoming company links" className="mt-6 space-y-3">
-              {unavailableLinks.map((label) => (
-                <li key={label} className="flex items-center gap-2 text-sm text-slate-600">
-                  <span>{label}</span>
-                  <span className="text-[8px] uppercase tracking-[0.16em] text-slate-700">
-                    Soon
-                  </span>
+            <ul aria-label="Company links" className="mt-6 space-y-3">
+              {companyLinks.map((label) => (
+                <li key={label} className="text-sm text-slate-500">
+                  {label}
                 </li>
               ))}
             </ul>

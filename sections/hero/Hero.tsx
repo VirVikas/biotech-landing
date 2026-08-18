@@ -49,12 +49,13 @@ export function Hero() {
       className="relative min-h-screen overflow-hidden bg-[#05131D]"
     >
       {/* Ambient lighting */}
-      <div className="pointer-events-none absolute left-[5%] top-[20%] h-[500px] w-[500px] rounded-full bg-[#18E8CF]/10 blur-[140px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-[5%] top-[20%] h-[500px] w-[500px] rounded-full bg-[#18E8CF]/10 blur-[140px]" />
 
-      <div className="pointer-events-none absolute right-[5%] top-[10%] h-[600px] w-[600px] rounded-full bg-[#6AA8FF]/10 blur-[160px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute right-[5%] top-[10%] h-[600px] w-[600px] rounded-full bg-[#6AA8FF]/10 blur-[160px]" />
 
       {/* Scientific grid */}
       <div
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.045]"
         style={{
           backgroundImage: `
@@ -66,7 +67,7 @@ export function Hero() {
       />
 
       {/* Molecular visualization */}
-      <div className="pointer-events-none absolute inset-y-0 right-[-18%] w-[78%] sm:right-[-12%] sm:w-[70%] lg:right-[-5%] lg:w-[64%]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-[-18%] w-[78%] sm:right-[-12%] sm:w-[70%] lg:right-[-5%] lg:w-[64%]">
         <MolecularScene />
 
         {/* Atmospheric fade */}

@@ -8,7 +8,7 @@ export function MolecularScene() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="absolute inset-0">
+    <div aria-hidden="true" className="absolute inset-0">
       <Canvas
         frameloop={shouldReduceMotion ? "never" : "always"}
         camera={{

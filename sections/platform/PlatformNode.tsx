@@ -35,7 +35,7 @@ export function PlatformNode({
       role="img"
       tabIndex={0}
       aria-label={`${title}, ${category}`}
-      className="group absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center outline-none"
+      className="group absolute flex select-none -translate-x-1/2 -translate-y-1/2 flex-col items-center outline-none"
       style={{ left: `${x * 100}%`, top: `${y * 100}%` }}
       initial={false}
       animate={{
